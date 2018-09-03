@@ -12,4 +12,8 @@ Homework 1
 
 5. I am signed up for both beagle Google groups
 
-6. 
+6. Run my etch-a-sketch program
+    - run install.sh in order to install pygame
+    - ./EtchASketch.py
+    - it will prompt you to enter the screen size and initial cursor position
+    - it wll then print out instructions

@@ -7,6 +7,7 @@
 import pygame, sys
 from pygame.locals import *
 
+# global variables
 white = (255, 255, 255)
 black = (0, 0, 0)
 maxScreenLength = 800
