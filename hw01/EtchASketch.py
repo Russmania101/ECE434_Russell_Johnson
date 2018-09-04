@@ -79,12 +79,12 @@ def main():
         pygame.draw.circle(screen, black, (x,y), dotSize)
         pygame.display.update()
 
-        # handle a key being pressed
+        # handle a key being pressed & handle boundaries
         key = pygame.key.get_pressed()
-        if key[pygame.K_RIGHT] : x += 1
-        if key[pygame.K_LEFT] : x -= 1
-        if key[pygame.K_UP] : y -= 1
-        if key[pygame.K_DOWN] : y += 1
+        if key[pygame.K_RIGHT] and x < screenWidth: x += 1
+        if key[pygame.K_LEFT] and x > minPosition: x -= 1
+        if key[pygame.K_UP] and y > minPosition: y -= 1
+        if key[pygame.K_DOWN] and y < screenHeight: y += 1
         if key[pygame.K_q] : sys.exit()
         if key[pygame.K_c] : screen.fill(white)
 
