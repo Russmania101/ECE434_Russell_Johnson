@@ -113,7 +113,7 @@ def main():
     # display initial dot on led matrix
     x = 4
     y = 4
-    display[column[y]] = row[x]
+    display[column[x]] = row[y]
     bus.write_i2c_block_data(matrix, 0, display)
 
     try:
@@ -148,7 +148,7 @@ def main():
                 clear = 0
 
             # TODO: update LED Matrix
-            display[column[y]] = display[column[y]] | row[x]
+            display[column[x]] = display[column[x]] | row[y]
             bus.write_i2c_block_data(matrix, 0, display)
 
     except KeyboardInterrupt:
