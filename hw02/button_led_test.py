@@ -5,15 +5,15 @@ import time
 
 # set button pins
 btn1 = "P9_11"
-btn2 = "P9_21"
+btn2 = "P9_23"
 btn3 = "P9_13"
 btn4 = "P9_14"
 
 # set LED pins
 LED1 = "P9_15"
 LED2 = "P9_16"
-LED3 = "P9_17"
-LED4 = "P9_18"
+LED3 = "P9_19"
+LED4 = "P9_20"
 
 # set the LED GPIO pins as outputs
 GPIO.setup(LED1, GPIO.OUT)

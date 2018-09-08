@@ -2,63 +2,158 @@
 
 import Adafruit_BBIO.GPIO as GPIO
 import time
+from threading import Thread
+import smbus
+import time
 
-# set button pins
-btnUP = "P9_11"
-btnDOWN = "P9_21"
-btnLEFT = "P9_13"
-btnRIGHT = "P9_14"
+bus = smbus.SMBus(1)  # Use i2c bus 1
+matrix = 0x70         # Use address 0x70
 
-# set the button GPIO pins as inputs
-GPIO.setup(btnUP, GPIO.IN)
-GPIO.setup(btnDOWN, GPIO.IN)
-GPIO.setup(btnLEFT, GPIO.IN)
-GPIO.setup(btnRIGHT, GPIO.IN)
+delay = 1; # Delay between images in s
 
-def moveUp(channel):
-    print("channel = " + channel)
+# button states
+move_up = 0
+move_down = 0
+move_left = 0
+move_right = 0
+clear = 0
+
+# button pins
+btn_up = "P9_11"
+btn_down = "P9_23"
+btn_left = "P9_13"
+btn_right = "P9_14"
+btn_clear = "P9_24"
+
+column = {1:0x00, 2:0x02, 3:0x04, 4:0x06, 5:0x08, 6:0x0A, 7:0x0C, 8:0x0E}
+row = {1:0b10000000, 2:0b01000000, 3:0b00100000, 4:0b00010000, 5:0b00001000, 6:0b00000100, 7:0b00000010, 8:0b00000001}
+clear_led = [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]
+display = [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]
+
+def handleUp(channel):
+    global move_up
+
+    #print("channel = " + channel)
     state = GPIO.input(channel)
-    print("Up")
+    
+    move_up = state
     #GPIO.output(map[channel], state)
     #print(map[channel] + " Toggled")
 
-def moveDown(channel):
-    print("channel = " + channel)
+def handleDown(channel):
+    global move_down
+
+    #print("channel = " + channel)
     state = GPIO.input(channel)
-    print("Down")
+
+    move_down = state
     #GPIO.output(map[channel], state)
     #print(map[channel] + " Toggled")
 
-def moveLeft(channel):
-    print("channel = " + channel)
+def handleLeft(channel):
+    global move_left
+
+    #print("channel = " + channel)
     state = GPIO.input(channel)
-    print("Left")
+    
+    move_left = state
     #GPIO.output(map[channel], state)
     #print(map[channel] + " Toggled")
 
-def moveRight(channel):
-    print("channel = " + channel)
+def handleRight(channel):
+    global move_right
+
+    #print("channel = " + channel)
     state = GPIO.input(channel)
-    print("Right")
+    
+    move_right = state
     #GPIO.output(map[channel], state)
     #print(map[channel] + " Toggled")
 
-print("Running...")
+def handleClear(channel):
+    global clear
 
-# add detection event for each button: Rising, Falling, or Both
-GPIO.add_event_detect(btnUP, GPIO.BOTH, callback=moveUp)
-GPIO.add_event_detect(btnDOWN, GPIO.BOTH, callback=moveDown)
-GPIO.add_event_detect(btnLEFT, GPIO.BOTH, callback=moveLeft)
-GPIO.add_event_detect(btnRIGHT, GPIO.BOTH, callback=moveRight)
+    #print("channel = " + channel)
+    state = GPIO.input(channel)
 
-# print out instructions
-print ("\nInstructions: ")
-print ("Use the four buttons to move up, down, left, and right and draw on the screen")
+    clear = state
 
-try:
-    while True:
-        time.sleep(100) # let other processes run
-except KeyboardInterrupt:
-    print("Cleaning Up...")
+def main():
+    global btn_up, btn_down, btn_left, btn_right, btn_clear, bus, matrix, column, row
+    global move_up, move_down, move_left, move_right, clear, display
+
+    bus.write_byte_data(matrix, 0x21, 0)   # Start oscillator (p10)
+    bus.write_byte_data(matrix, 0x81, 0)   # Disp on, blink off (p11)
+    bus.write_byte_data(matrix, 0xe7, 0)   # Full brightness (page 15)
+
+    # set the button GPIO pins as inputs
+    GPIO.setup(btn_up, GPIO.IN)
+    GPIO.setup(btn_down, GPIO.IN)
+    GPIO.setup(btn_left, GPIO.IN)
+    GPIO.setup(btn_right, GPIO.IN)
+    GPIO.setup(btn_clear, GPIO.IN)
+
+    print("Running...")
+
+    # add detection event for each button: Rising, Falling, or Both
+    GPIO.add_event_detect(btn_up, GPIO.BOTH, callback=handleUp)
+    GPIO.add_event_detect(btn_down, GPIO.BOTH, callback=handleDown)
+    GPIO.add_event_detect(btn_left, GPIO.BOTH, callback=handleLeft)
+    GPIO.add_event_detect(btn_right, GPIO.BOTH, callback=handleRight)
+    GPIO.add_event_detect(btn_clear, GPIO.BOTH, callback=handleClear)
+
+    # print out instructions
+    print ("\nInstructions: ")
+    print ("Use the four buttons to move up, down, left, and right and draw on the screen")
+
+    # clear led matrix
+    display = clear_led[:]
+    bus.write_i2c_block_data(matrix, 0, display)
+
+    # display initial dot on led matrix
+    x = 4
+    y = 4
+    display[column[y]] = row[x]
+    bus.write_i2c_block_data(matrix, 0, display)
+
+    try:
+        while True:
+            #time.sleep(100) # let other processes run
+
+            # move cursor
+            if move_up == 1:
+                if y > 1:
+                    y -= 1
+                print("Up")
+                move_up = 0
+            if move_down == 1:
+                if y < 8:
+                    y += 1
+                print("Down")
+                move_down = 0
+            if move_left == 1:
+                if x > 1:
+                    x -= 1
+                print("Left")
+                move_left = 0
+            if move_right == 1:
+                if x < 8:
+                    x += 1
+                print("Right")
+                move_right = 0
+            if clear == 1:
+                display = clear_led[:]
+                bus.write_i2c_block_data(matrix, 0, display)
+                print("Clear")
+                clear = 0
+
+            # TODO: update LED Matrix
+            display[column[y]] = display[column[y]] | row[x]
+            bus.write_i2c_block_data(matrix, 0, display)
+
+    except KeyboardInterrupt:
+        print("Cleaning Up...")
+        GPIO.cleanup()
     GPIO.cleanup()
-GPIO.cleanup()
+
+main()
