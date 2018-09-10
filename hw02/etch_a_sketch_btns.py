@@ -37,8 +37,6 @@ def handleUp(channel):
     state = GPIO.input(channel)
     
     move_up = state
-    #GPIO.output(map[channel], state)
-    #print(map[channel] + " Toggled")
 
 def handleDown(channel):
     global move_down
@@ -47,8 +45,6 @@ def handleDown(channel):
     state = GPIO.input(channel)
 
     move_down = state
-    #GPIO.output(map[channel], state)
-    #print(map[channel] + " Toggled")
 
 def handleLeft(channel):
     global move_left
@@ -57,8 +53,6 @@ def handleLeft(channel):
     state = GPIO.input(channel)
     
     move_left = state
-    #GPIO.output(map[channel], state)
-    #print(map[channel] + " Toggled")
 
 def handleRight(channel):
     global move_right
@@ -67,8 +61,6 @@ def handleRight(channel):
     state = GPIO.input(channel)
     
     move_right = state
-    #GPIO.output(map[channel], state)
-    #print(map[channel] + " Toggled")
 
 def handleClear(channel):
     global clear
@@ -102,7 +94,8 @@ def main():
 
     # print out instructions
     print ("\nInstructions: ")
-    print ("Use the four buttons to move up, down, left, and right and draw on the screen")
+    print ("Use the first four buttons to move up, down, left, and right on the LED matrix")
+    print ("Use the last button to clear the LED matrix")
 
     # clear led matrix
     display = clear_led[:]
@@ -114,7 +107,7 @@ def main():
     display[column[x]] = row[y]
     bus.write_i2c_block_data(matrix, 0, display)
 
-    print("\nRunning...")
+    print ("\nRunning...")
 
     try:
         while True:
@@ -145,7 +138,7 @@ def main():
             bus.write_i2c_block_data(matrix, 0, display)
 
     except KeyboardInterrupt:
-        print("\nCleaning Up...")
+        print ("\nCleaning Up...")
         GPIO.cleanup()
     GPIO.cleanup()
 
