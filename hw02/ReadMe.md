@@ -2,7 +2,7 @@ Russell Johnson
 ECE434 Homework 2
 
 - Button and LEDs
-	1. Successfully wired up 4 buttons to the BeagleBone
+	1) Successfully wired up 4 buttons to the BeagleBone
 		- Pins: P9_11, P9_23, P9_13, P9_14
 	2. Successfully wired up 4 LEDs to the BeagleBone
 		- Pins: P9_15, P9_16, P9_19, P9_20
