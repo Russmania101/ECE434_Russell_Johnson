@@ -25,7 +25,7 @@ ECE434 Homework 2
 		10.
 		11.
 	 - Python Questions
-		1. 
+	 	1.
 		2.
 		3.
 		4.
@@ -37,7 +37,7 @@ ECE434 Homework 2
 		10.
 		11.
 	- C Questions
-		1. 
+		1.
 		2.
 		3.
 		4.
