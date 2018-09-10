@@ -124,27 +124,22 @@ def main():
             if move_up == 1:
                 if y > 1:
                     y -= 1
-                print("Up")
                 move_up = 0
             if move_down == 1:
                 if y < 8:
                     y += 1
-                print("Down")
                 move_down = 0
             if move_left == 1:
                 if x > 1:
                     x -= 1
-                print("Left")
                 move_left = 0
             if move_right == 1:
                 if x < 8:
                     x += 1
-                print("Right")
                 move_right = 0
             if clear == 1:
                 display = clear_led[:]
                 bus.write_i2c_block_data(matrix, 0, display)
-                print("Clear")
                 clear = 0
 
             # TODO: update LED Matrix
