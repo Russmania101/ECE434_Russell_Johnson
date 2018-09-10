@@ -93,8 +93,6 @@ def main():
     GPIO.setup(btn_right, GPIO.IN)
     GPIO.setup(btn_clear, GPIO.IN)
 
-    print("Running...")
-
     # add detection event for each button: Rising, Falling, or Both
     GPIO.add_event_detect(btn_up, GPIO.BOTH, callback=handleUp)
     GPIO.add_event_detect(btn_down, GPIO.BOTH, callback=handleDown)
@@ -115,6 +113,8 @@ def main():
     y = 4
     display[column[x]] = row[y]
     bus.write_i2c_block_data(matrix, 0, display)
+
+    print("\nRunning...")
 
     try:
         while True:
@@ -140,11 +140,12 @@ def main():
                 bus.write_i2c_block_data(matrix, 0, display)
                 clear = 0
 
+            # update LED matrix
             display[column[x]] = display[column[x]] | row[y]
             bus.write_i2c_block_data(matrix, 0, display)
 
     except KeyboardInterrupt:
-        print("Cleaning Up...")
+        print("\nCleaning Up...")
         GPIO.cleanup()
     GPIO.cleanup()
 
