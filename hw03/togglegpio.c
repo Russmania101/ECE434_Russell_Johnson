@@ -6,7 +6,9 @@
 #include <libsoc_debug.h>
 // Blinks an LED attached to P9_14
 #define GPIO_OUTPUT 50
-int delay = 100000 // 100ms
+int delay = 100000; // 100ms
+//int delay = 10000 // 10ms
+//int delay = 1000 // 1ms
 
 int main(void) 
 {
@@ -21,11 +23,10 @@ int main(void)
     // for fast toggle
 
     int i;
-    for (i=0; i<1000000; i++) { // Toggle GPIO X
-        times
+    for (i=0; i<1000000; i++) { // Toggle GPIO X times
         libsoc_gpio_set_level(gpio_output, HIGH);
         usleep(delay);
-        // sleep 100,000 uS
+        
         libsoc_gpio_set_level(gpio_output, LOW);
         usleep(delay);
     }
