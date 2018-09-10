@@ -118,8 +118,6 @@ def main():
 
     try:
         while True:
-            #time.sleep(100) # let other processes run
-
             # move cursor
             if move_up == 1:
                 if y > 1:
@@ -142,7 +140,6 @@ def main():
                 bus.write_i2c_block_data(matrix, 0, display)
                 clear = 0
 
-            # TODO: update LED Matrix
             display[column[x]] = display[column[x]] | row[y]
             bus.write_i2c_block_data(matrix, 0, display)
 
