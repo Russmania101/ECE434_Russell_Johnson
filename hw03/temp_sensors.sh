@@ -9,7 +9,7 @@
 # V+ -> 0x4A
 # Floating -> 0x49
 
-while [1];
+while true
 do
     # Read temp sensors on i2c bus 1
     temp1C = `i2cget -y 1 0x48` # ADD0 -> GND
