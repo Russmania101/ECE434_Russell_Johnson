@@ -12,16 +12,16 @@
 while true
 do
     # Read temp sensors on i2c bus 1
-    temp1C = `i2cget -y 1 0x48` # ADD0 -> GND
-    temp2C = `i2cget -y 1 0x4A` # ADD0 -> V+
+    temp1C=`i2cget -y 1 0x48` # ADD0 -> GND
+    temp2C=`i2cget -y 1 0x4A` # ADD0 -> V+
 
     # Convert Celcius temps to fahrenheit
-    temp1F = $(($temp1C * (9/5) + 32))
-    temp2F = $(($temp2C * (9/5) + 32))
+    temp1F=$((($temp1C * 9/5) + 32))
+    temp2F=$((($temp2C * 9/5) + 32))
 
     # print out the temperatures
     echo Temperature 1: $temp1F degrees F
-    echo Temperature 2: $temp2 degrees F
+    echo Temperature 2: $temp2F degrees F
 
     # buffer time
     sleep 1
