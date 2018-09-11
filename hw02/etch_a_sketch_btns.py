@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+# Russell Johnson
+# ECE434
+# Homework 2
+
 import Adafruit_BBIO.GPIO as GPIO
 import time
 from threading import Thread
