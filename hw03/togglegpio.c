@@ -5,10 +5,13 @@
 #include <libsoc_gpio.h>
 #include <libsoc_debug.h>
 // Blinks an LED attached to P9_14
-#define GPIO_OUTPUT 50
-int delay = 100000; // 100ms
-//int delay = 10000 // 10ms
-//int delay = 1000 // 1ms
+#define GPIO_OUTPUT 60
+//int delay = 50000; // 100ms
+//int delay = 5000; // 10ms
+//int delay = 500; // 1ms
+int delay = 50; // 100us
+//int delay = 5; // 10us
+//int delay = 0.5; // 1us
 
 int main(void) 
 {
