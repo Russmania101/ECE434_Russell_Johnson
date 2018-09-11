@@ -4,6 +4,10 @@
 #
 # Toggle a GPIO input
 
+# Russell Johnson
+# ECE434
+# Homework 2
+
 if [ $# -lt 2 ]; then
     echo "Usage: $0 <gpio pin#> <delay in seconds>"
     exit 0
