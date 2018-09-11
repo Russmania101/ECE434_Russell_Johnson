@@ -9,6 +9,7 @@ ECE434 Homework 2
 	3. Wrote a python script that turns on an LED when its 
 	   corresponding button is pressed
 		- called button_led_test.py
+		- run ./config_pins.sh
 		- run ./button_led_test.py
 
 - GPIO Pin on an Oscilloscpe
@@ -59,6 +60,7 @@ ECE434 Homework 2
 	- I also went ahead and added the LED Matrix
 		- i2c bus 1: Data - P9_17, CLK - P9_18
 	- How to run:
-		1. ./etch_a_sketch_btns.py
-		2. Instructions will be printed out
+		1. ./config_pins.sh
+		2. ./etch_a_sketch_btns.py
+		3. Instructions will be printed out
 
