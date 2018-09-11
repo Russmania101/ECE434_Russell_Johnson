@@ -4,8 +4,15 @@
 #include <sys/wait.h>
 #include <libsoc_gpio.h>
 #include <libsoc_debug.h>
+
+/* Russell Johnson
+ * ECE434
+ * Homework 2
+ */
+
 // Blinks an LED attached to P9_14
 #define GPIO_OUTPUT 60
+
 //int delay = 50000; // 100ms
 //int delay = 5000; // 10ms
 //int delay = 500; // 1ms
