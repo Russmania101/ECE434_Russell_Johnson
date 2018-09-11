@@ -13,7 +13,7 @@ ECE434 Homework 2
 		- run ./button_led_test.py
 
 - GPIO Pin on an Oscilloscpe
-	- Bash Questions
+	- Bash Questions: togglegpio.sh
 		1. Min = 100mV, Max = 3.25V
 		2. 4.2Hz -> 238ms
 		3. 238ms - 100ms = 138ms
@@ -26,7 +26,7 @@ ECE434 Homework 2
 		9. Cleaning up the file did not affect the period
 		10. Period is still the same with sh instead of bash
 		11. 1ms is still about the shortest period I can get
-	 - Python Questions
+	 - Python Questions: togglegpio.py
 	 	1. Min = 100mV, Max = 3.25V
 		2. 100ms
 		3. 0ms
@@ -39,7 +39,7 @@ ECE434 Homework 2
 		9. N/A
 		10. N/A
 		11. 1ms is the shortest stable period that I can get
-	- C Questions
+	- C Questions: togglegpio.c
 		1. Min = 100mV, Max = 3.25V
 		2. 100.5ms
 		3. 100.5 - 100 = 0.5ms
