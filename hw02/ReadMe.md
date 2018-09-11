@@ -13,6 +13,14 @@ ECE434 Homework 2
 		- run ./button_led_test.py
 
 - GPIO Pin on an Oscilloscpe
+	- Run Scripts:
+		1. Bash/Shell
+			- ./togglegpio.sh 60 0.1
+		2. Python
+			- ./togglegpio.py
+		3. C
+			- gcc -lsoc -o togglegpio togglegpio.c
+			- ./togglegpio
 	- Bash Questions: togglegpio.sh
 		1. Min = 100mV, Max = 3.25V
 		2. 4.2Hz -> 238ms
