@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+# Russell Johnson
+# ECE434
+# Homework 2
+
 import Adafruit_BBIO.GPIO as GPIO
 from Adafruit_BBIO.Encoder import RotaryEncoder, eQEP2, eQEP1
 import time
