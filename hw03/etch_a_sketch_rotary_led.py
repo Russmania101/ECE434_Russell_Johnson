@@ -2,7 +2,7 @@
 
 # Russell Johnson
 # ECE434
-# Homework 2
+# Homework 3
 
 import Adafruit_BBIO.GPIO as GPIO
 from Adafruit_BBIO.Encoder import RotaryEncoder, eQEP2, eQEP1

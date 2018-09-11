@@ -5,7 +5,7 @@
 
 # Russell Johnson
 # ECE434
-# Homework 2
+# Homework 3
 
 from Adafruit_BBIO.Encoder import RotaryEncoder, eQEP2
 import time
