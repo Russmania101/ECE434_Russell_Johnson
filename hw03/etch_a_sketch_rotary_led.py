@@ -15,11 +15,21 @@ import time
 bus = smbus.SMBus(1)  # Use i2c bus 1
 matrix = 0x70         # Use address 0x70
 
+# temperature sensor setup
+temp = 0x48           # Use address 0x48
+alarm = 30            # 26 degress Celcius
+
 # clear button state
 clear = 0
 
 # button pins
 btn_clear = "P9_24"
+
+# ALRM pin for temp sensor 1
+ALRM = "P9_41"
+
+# set LED pin
+LED = "P9_15"
 
 # rotary encoders
 rotary_vertical = RotaryEncoder(eQEP2)
@@ -43,7 +53,7 @@ def handleClear(channel):
     clear = state
 
 def main():
-    global btn_clear, bus, matrix, column, row, step_size
+    global btn_clear, bus, matrix, column, row, step_size, ALRM, temp, alarm
     global clear, display, rotary_vertical, rotary_horizontal
 
     bus.write_byte_data(matrix, 0x21, 0)   # Start oscillator (p10)
@@ -52,6 +62,20 @@ def main():
 
     # set the button GPIO pins as inputs
     GPIO.setup(btn_clear, GPIO.IN)
+
+    # set the ALRM GPIO pin as input (for temp sensor 1)
+    GPIO.setup(ALRM, GPIO.IN)
+
+    # configure temperature sensor alarm
+    bus.write_byte_data(temp, 1, 0x80)
+    bus.write_byte_data(temp, 2, alarm) # Low alarm temp
+    bus.write_byte_data(temp, 3, alarm) # High alarm temp
+
+    # set the LED GPIO pin as outputs
+    GPIO.setup(LED, GPIO.OUT)
+
+    # turn LED off
+    GPIO.output(LED, 0)
 
     # set up encoders
     rotary_vertical.setAbsolute()
@@ -114,6 +138,23 @@ def main():
                 display = clear_led[:]
                 bus.write_i2c_block_data(matrix, 0, display)
                 clear = 0
+
+            # check if temp alarm has been hit: clear and turn on LED if so
+            if GPIO.input(ALRM) == 0:
+                # Get temp
+                tempC = bus.read_byte_data(temp, 0) # 0 = temperature
+                tempF = (tempC * 9/5) + 32
+                print("Temperature alarm triggered at %d degrees Fahrenheit" % (tempF))
+
+                # Turn on LED
+                GPIO.output(LED, 1)
+
+                # Clear LCD
+                display = clear_led[:]
+                bus.write_i2c_block_data(matrix, 0, display)
+            elif GPIO.input(ALRM) == 1:
+                # Turn off LED
+                GPIO.output(LED, 0)
 
             # update LED Matrix
             display[column[x]] = display[column[x]] | row[y]

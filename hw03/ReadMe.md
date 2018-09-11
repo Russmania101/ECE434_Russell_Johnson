@@ -23,3 +23,15 @@ ECE434 Homework 3
         - ./config_pins.sh
         - ./etch_a_sketch_rotary_led.py
         - Instructions will be printed out
+
+3. Extras
+    - Added a temperature sensor and LED to the etch-a-sketch program
+        - Temp sensor:
+            - SCL - p9_17
+            - Data - p9_18
+            - ADD0 - GND
+            - ALERT - p9_41
+        - LED:
+            - p9_15
+        - When the temperature sensor reaches 30 degrees celcius, the LED lights
+          up, and the LED matrix is cleared
