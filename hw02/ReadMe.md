@@ -20,7 +20,7 @@ ECE434 Homework 2
 		4. OS handles when each program is executed, so you get what you get
 		5. 4% CPU
 		6. 1ms is about the shortest period I can get
-			- table is in gpio_tables.docx
+			- table is in gpio_comparison_table.pdf
 		7. The period is slightly unstable at 1ms
 		8. The period is still slightly unstable at 1ms
 		9. Cleaning up the file did not affect the period
@@ -33,7 +33,7 @@ ECE434 Homework 2
 		4. python is much faster than direct hardware access using bash/shell
 		5. 3% CPU
 		6. 1ms is about the shortest stable period I can get with a small difference in period
-			- table is in gpio_tables.docx
+			- table is in gpio_comparison_table.pdf
 		7. The period is stable at 1ms
 		8. The period is still stable at 1ms
 		9. N/A
@@ -46,7 +46,7 @@ ECE434 Homework 2
 		4. C is still much faster than direct hardware access using bash/shell, but the OS still plays a role
 		5. 2.6%
 		6. 1ms is about the shortest stable period I can get with a small difference in period
-			- table is in gpio_tables.docx
+			- table is in gpio_comparison_table.pdf
 		7. The period is stable at 1ms
 		8. The period is still stable at 1ms
 		9. N/A
