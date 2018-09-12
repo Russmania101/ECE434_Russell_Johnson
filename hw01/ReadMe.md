@@ -17,3 +17,9 @@ Homework 1
     - ./EtchASketch.py
     - it will prompt you to enter the screen size and initial cursor position
     - it wll then print out instructions
+    - 
+    - 
+Well done.
+Be sure to do a chmod +x on you file so it will execute.
+
+Score:  10/10
