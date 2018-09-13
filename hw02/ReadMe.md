@@ -1,7 +1,7 @@
 Russell Johnson
 ECE434 Homework 2
 
-- Button and LEDs
+- Button and LEDs - VERIFED WORKING
 	1) Successfully wired up 4 buttons to the BeagleBone
 		- Pins: P9_11, P9_23, P9_13, P9_14
 	2. Successfully wired up 4 LEDs to the BeagleBone
@@ -61,7 +61,7 @@ ECE434 Homework 2
 		10. N/A
 		11. 1ms is the shortest stable period that I can get
 
-- Add buttons to Etch-A-Sketch python script
+- Add buttons to Etch-A-Sketch python script - VERIFIED WORKING
 	- I added 5 buttons:
 		1. Up - P9_11
 		2. Down - P9_23
