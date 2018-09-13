@@ -17,7 +17,7 @@ matrix = 0x70         # Use address 0x70
 
 # temperature sensor setup
 temp = 0x48           # Use address 0x48
-alarm = 30            # 26 degress Celcius
+alarm = 30            # 30 degress Celcius
 
 # clear button state
 clear = 0
@@ -91,6 +91,7 @@ def main():
     print ("\t1. Use the two rotary encoders to 'draw' on led matrix:")
     print ("\t\tfirst - up/down, second - left/right")
     print ("\t2. Use the button to clear the led matrix")
+    print("\t3. If the temp sensor reaches 30 Celcius, the led matrix will clear")
 
     # clear led matrix
     display = clear_led[:]
