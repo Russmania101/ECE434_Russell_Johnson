@@ -6,7 +6,7 @@ config-pin p9_24 gpio
 # config LED
 config-pin p9_15 gpio
 
-# config ALRM for temp sensor
+# config ALERT for temp sensor
 config-pin p9_41 gpio
 
 # config LED matrix & temp sensors
