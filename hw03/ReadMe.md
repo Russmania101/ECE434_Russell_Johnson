@@ -35,3 +35,11 @@ ECE434 Homework 3
             - p9_15
         - When the temperature sensor reaches 30 degrees celcius, the LED lights
           up, and the LED matrix is cleared
+
+
+========================
+Professor Yoder's Comments
+
+Looks very good.  Nice and complete.
+
+Score:10/10
