@@ -8,6 +8,7 @@
 #include <sys/stat.h>
 #include <fcntl.h> 
 #include <signal.h>    // Defines signal-handling functions (i.e. trap Ctrl-C)
+#include <unistd.h>
 #include "beaglebone_gpio.h"
 
 /****************************************************************
