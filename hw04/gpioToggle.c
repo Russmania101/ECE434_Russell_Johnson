@@ -59,17 +59,17 @@ int main(int argc, char *argv[]) {
     // Set USR3 to be an output pin
     reg = *gpio_oe_addr;
     printf("GPIO1 configuration: %X\n", reg);
-    reg &= ~USR3;       // Set USR3 bit to 0
+    reg &= ~GPIO1_16;       // Set GPIO1_16 bit to 0
     *gpio_oe_addr = reg;
     printf("GPIO1 configuration: %X\n", reg);
 
     printf("Start blinking LED USR3\n");
     while(keepgoing) {
         // printf("ON\n");
-        *gpio_setdataout_addr = USR3;
+        *gpio_setdataout_addr = GPIO1_16;
         usleep(250000);
         // printf("OFF\n");
-        *gpio_cleardataout_addr = USR3;
+        *gpio_cleardataout_addr = GPIO1_16;
         usleep(250000);
     }
 
