@@ -23,5 +23,6 @@
 #define GPIO_03  (1<<3)
 #define GPIO_07  (1<<7)
 #define GPIO_60  (1<<28)
-#define GPIO1_16 (1<<16)
+#define GPIO1_16 (1<<16) // LED1
+#define GPIO1_19 (1<<19) // LED2
 #endif

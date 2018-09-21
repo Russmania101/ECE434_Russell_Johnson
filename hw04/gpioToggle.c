@@ -56,20 +56,23 @@ int main(int argc, char *argv[]) {
     printf("GPIO SETDATAOUTADDR mapped to %p\n", gpio_setdataout_addr);
     printf("GPIO CLEARDATAOUT mapped to %p\n", gpio_cleardataout_addr);
 
-    // Set USR3 to be an output pin
+    // Set both LEDs to be outputs
     reg = *gpio_oe_addr;
     printf("GPIO1 configuration: %X\n", reg);
     reg &= ~GPIO1_16;       // Set GPIO1_16 bit to 0
+    reg &= ~GPIO1_19;       // Set GPIO1_19 bit to 0
     *gpio_oe_addr = reg;
     printf("GPIO1 configuration: %X\n", reg);
 
-    printf("Start blinking LED USR3\n");
+    printf("Start blinking LED on P9_15 & P9_16\n");
     while(keepgoing) {
         // printf("ON\n");
         *gpio_setdataout_addr = GPIO1_16;
+        *gpio_setdataout_addr = GPIO1_19;
         usleep(250000);
         // printf("OFF\n");
         *gpio_cleardataout_addr = GPIO1_16;
+        *gpio_cleardataout_addr = GPIO1_19;
         usleep(250000);
     }
 
