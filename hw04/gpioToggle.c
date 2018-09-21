@@ -39,44 +39,74 @@ int main(int argc, char *argv[]) {
 
     int fd = open("/dev/mem", O_RDWR);
 
-    printf("Mapping %X - %X (size: %X)\n", GPIO1_START_ADDR, GPIO1_END_ADDR, GPIO1_SIZE);
+    // GPIO0
+    printf("Mapping %X - %X (size: %X)\n", GPIO0_START_ADDR, GPIO0_END_ADDR, GPIO0_SIZE);
+    gpio0_addr = mmap(0, GPIO0_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, GPIO0_START_ADDR);
 
-    gpio_addr = mmap(0, GPIO1_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, GPIO1_START_ADDR);
+    gpio0_oe_addr           = gpio0_addr + GPIO_OE;
+    gpio0_datain            = gpio0_addr + GPIO_DATAIN;
+    gpio0_setdataout_addr   = gpio0_addr + GPIO_SETDATAOUT;
+    gpio0_cleardataout_addr = gpio0_addr + GPIO_CLEARDATAOUT;
 
-    gpio_oe_addr           = gpio_addr + GPIO_OE;
-    gpio_setdataout_addr   = gpio_addr + GPIO_SETDATAOUT;
-    gpio_cleardataout_addr = gpio_addr + GPIO_CLEARDATAOUT;
-
-    if(gpio_addr == MAP_FAILED) {
+    if(gpio0_addr == MAP_FAILED) {
         printf("Unable to map GPIO\n");
         exit(1);
     }
-    printf("GPIO mapped to %p\n", gpio_addr);
-    printf("GPIO OE mapped to %p\n", gpio_oe_addr);
-    printf("GPIO SETDATAOUTADDR mapped to %p\n", gpio_setdataout_addr);
-    printf("GPIO CLEARDATAOUT mapped to %p\n", gpio_cleardataout_addr);
+    printf("GPIO0 mapped to %p\n", gpio0_addr);
+    printf("GPIO0 OE mapped to %p\n", gpio0_oe_addr);
+    printf("GPIO0 SETDATAOUTADDR mapped to %p\n", gpio0_setdataout_addr);
+    printf("GPIO0 CLEARDATAOUT mapped to %p\n", gpio0_cleardataout_addr);
+
+    // GPIO1
+    printf("Mapping %X - %X (size: %X)\n", GPIO1_START_ADDR, GPIO1_END_ADDR, GPIO1_SIZE);
+    gpio1_addr = mmap(0, GPIO1_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, GPIO1_START_ADDR);
+
+    gpio1_oe_addr           = gpio1_addr + GPIO_OE;
+    gpio1_datain            = gpio1_addr + GPIO_DATAIN;
+    gpio1_setdataout_addr   = gpio1_addr + GPIO_SETDATAOUT;
+    gpio1_cleardataout_addr = gpio1_addr + GPIO_CLEARDATAOUT;
+
+    if(gpio1_addr == MAP_FAILED) {
+        printf("Unable to map GPIO\n");
+        exit(1);
+    }
+    printf("GPIO1 mapped to %p\n", gpio1_addr);
+    printf("GPIO1 OE mapped to %p\n", gpio1_oe_addr);
+    printf("GPIO1 SETDATAOUTADDR mapped to %p\n", gpio1_setdataout_addr);
+    printf("GPIO1 CLEARDATAOUT mapped to %p\n", gpio1_cleardataout_addr);
 
     // Set both LEDs to be outputs
-    reg = *gpio_oe_addr;
+    reg = *gpio1_oe_addr;
     printf("GPIO1 configuration: %X\n", reg);
     reg &= ~GPIO1_16;       // Set GPIO1_16 bit to 0
     reg &= ~GPIO1_19;       // Set GPIO1_19 bit to 0
-    *gpio_oe_addr = reg;
+    *gpio1_oe_addr = reg;
     printf("GPIO1 configuration: %X\n", reg);
 
-    printf("Start blinking LED on P9_15 & P9_16\n");
+    printf("Start blinking LEDs on P9_15 & P9_16\n");
     while(keepgoing) {
-        // printf("ON\n");
-        *gpio_setdataout_addr = GPIO1_16;
-        *gpio_setdataout_addr = GPIO1_19;
-        usleep(250000);
-        // printf("OFF\n");
-        *gpio_cleardataout_addr = GPIO1_16;
-        *gpio_cleardataout_addr = GPIO1_19;
+        if (*gpio0_datain & GPIO0_30) 
+        {
+            *gpio1_setdataout_addr = GPIO1_16;
+        }
+        else
+        {
+            *gpio1_cleardataout_addr = GPIO1_16;
+        }
+
+        if (*gpio1_datain & GPIO1_17) 
+        {
+            *gpio1_setdataout_addr = GPIO1_19;
+        }
+        else
+        {
+            *gpio1_cleardataout_addr = GPIO1_19;
+        }
         usleep(250000);
     }
 
-    munmap((void *)gpio_addr, GPIO1_SIZE);
+    munmap((void *)gpio1_addr, GPIO1_SIZE);
+    munmap((void *)gpio0_addr, GPIO0_SIZE);
     close(fd);
     return 0;
 }

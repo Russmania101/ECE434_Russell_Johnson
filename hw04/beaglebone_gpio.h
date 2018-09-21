@@ -2,11 +2,12 @@
 #ifndef _BEAGLEBONE_GPIO_H_
 #define _BEAGLEBONE_GPIO_H_
 
-//#define GPIO1_START_ADDR 0x4804C000
+// GPIO0
 #define GPIO0_START_ADDR 0x44e07000
 #define GPIO0_END_ADDR 0x44e09000
 #define GPIO0_SIZE (GPIO0_END_ADDR - GPIO0_START_ADDR)
 
+// GPIO1
 #define GPIO1_START_ADDR 0x4804C000
 #define GPIO1_END_ADDR 0x4804e000
 #define GPIO1_SIZE (GPIO1_END_ADDR - GPIO1_START_ADDR)
@@ -25,4 +26,6 @@
 #define GPIO_60  (1<<28)
 #define GPIO1_16 (1<<16) // LED1
 #define GPIO1_19 (1<<19) // LED2
+#define GPIO0_30 (1<<30) // Button 1
+#define GPIO1_17 (1<<17) // Button 2
 #endif
