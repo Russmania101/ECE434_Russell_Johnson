@@ -58,19 +58,19 @@ int main(int argc, char *argv[]) {
     printf("GPIO1 SETDATAOUTADDR mapped to %p\n", gpio1_setdataout_addr);
     printf("GPIO1 CLEARDATAOUT mapped to %p\n", gpio1_cleardataout_addr);
 
-    // Set both LEDs to be outputs
+    // Set LED to be output
     reg = *gpio1_oe_addr;
     printf("GPIO1 configuration: %X\n", reg);
     reg &= ~GPIO1_16;       // Set GPIO1_16 bit to 0
-    reg &= ~GPIO1_19;       // Set GPIO1_19 bit to 0
     *gpio1_oe_addr = reg;
     printf("GPIO1 configuration: %X\n", reg);
 
     printf("Start blinking LED on P9_15\n");
     while(keepgoing) {
         *gpio1_setdataout_addr = GPIO1_16;
-        usleep(10);
+        usleep(0.5);
         *gpio1_cleardataout_addr = GPIO1_16;
+        usleep(0.5);
     }
 
     munmap((void *)gpio1_addr, GPIO1_SIZE);
