@@ -15,4 +15,14 @@ GPIO via mmap:
             - make
             - sudo ./gpioToggle
         - Push the buttons to turn on their corresponding LEDs
+    
+    2. Toggle GPIO pin as fast as possible with mmap
+        - Tested with pin p9_15 at 10u and 1u
+        - Compared to the table from hw2 - results in toggle_gpio.pdf
+
+    3. 
+
+
+
+
 
