@@ -15,4 +15,12 @@ GPIO via mmap:
             - make
             - sudo ./gpioToggle
         - Push the buttons to turn on their corresponding LEDs
+    
+    2. Toggle GPIO pin as fast as possible with mmap
+        - 
+
+Extras:
+    - 
+
+
 
