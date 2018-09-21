@@ -103,6 +103,8 @@ int main(int argc, char *argv[]) {
         {
             *gpio1_cleardataout_addr = GPIO1_19;
         }
+
+	usleep(1);
     }
 
     munmap((void *)gpio1_addr, GPIO1_SIZE);
