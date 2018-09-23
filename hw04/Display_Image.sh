@@ -4,6 +4,8 @@
 # turn on lcd
 ./on.sh
 
+sleep 5
+
 # display boris image
 sudo fbi -noverbose -T 1 -a boris.png
 
