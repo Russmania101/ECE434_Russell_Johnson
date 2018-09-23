@@ -19,3 +19,6 @@ sleep 2
 # display boris image rotated 90 degrees
 sudo fbi -noverbose -T 1 -a boris.png
 
+sleep 5
+
+sudo mplayer Sample640.mp4
