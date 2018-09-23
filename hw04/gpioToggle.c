@@ -2,6 +2,8 @@
 //
 // Be sure to set -O3 when compiling.
 // Modified by Mark A. Yoder  26-Sept-2013
+// Modified by Russell Johnson 9-23-2018
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/mman.h>
@@ -86,6 +88,7 @@ int main(int argc, char *argv[]) {
 
     printf("Start blinking LEDs on P9_15 & P9_16\n");
     while(keepgoing) {
+	// if first button pressed - turn on first led
         if (*gpio0_datain & GPIO0_30) 
         {
             *gpio1_setdataout_addr = GPIO1_16;
@@ -95,6 +98,7 @@ int main(int argc, char *argv[]) {
             *gpio1_cleardataout_addr = GPIO1_16;
         }
 
+	// if second button pressed, turn on second led
         if (*gpio1_datain & GPIO1_17) 
         {
             *gpio1_setdataout_addr = GPIO1_19;
