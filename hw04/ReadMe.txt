@@ -11,6 +11,7 @@ GPIO via mmap:
         - LED pins: p9_15 & p9_16
         - Button pins: p9_11 & p9_23
         - How to run:
+            - ./install.sh
             - ./config-pins.sh
             - make
             - sudo ./gpioToggle
@@ -20,11 +21,23 @@ GPIO via mmap:
         - Tested with pin p9_15 at 10u and 1u
         - Compared to the table from hw2 - results in gpio_comp.pdf
         - run script:
+            - install.sh
             - ./config-pins.sh
             - make
             - sudo ./gpioToggleFast
 
-    3. 
+LCD Display
+    - Plug in and Turn on
+        - I wired up the LCD as described on the wiki
+        - The LCD properly turns on and runs
+
+    - Display Images & Movie
+        - Display an image.
+        - Display an image rotated 90 degrees.
+        - Play a movie.
+        - How to run:
+            - ./install.sh
+            - ./Display_Image.sh
 
 
 
