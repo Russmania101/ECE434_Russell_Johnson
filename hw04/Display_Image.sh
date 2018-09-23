@@ -21,4 +21,9 @@ sudo fbi -noverbose -T 1 -a boris.png
 
 sleep 5
 
-sudo mplayer -fs Sample640.mp4
+# rotate lcd back
+./on.sh
+
+sleep 2
+
+sudo mplayer video-sample.mpg
