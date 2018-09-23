@@ -39,7 +39,10 @@ LCD Display
             - ./install.sh
             - ./Display_Image.sh
 
-
+    - Display text on the LCD
+        - How to run:
+            - ./install.sh
+            - ./text.sh
 
 
 
