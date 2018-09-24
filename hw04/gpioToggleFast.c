@@ -69,8 +69,9 @@ int main(int argc, char *argv[]) {
     printf("Start blinking LED on P9_15\n");
     while(keepgoing) {
         *gpio1_setdataout_addr = GPIO1_16;
-        usleep(10);
+        usleep(0.5);
         *gpio1_cleardataout_addr = GPIO1_16;
+	usleep(0.5);
     }
 
     munmap((void *)gpio1_addr, GPIO1_SIZE);
