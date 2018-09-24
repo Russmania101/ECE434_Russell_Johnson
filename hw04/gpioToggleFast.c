@@ -2,6 +2,8 @@
 //
 // Be sure to set -O3 when compiling.
 // Modified by Mark A. Yoder  26-Sept-2013
+// Modified by Russell Johnson 9-23-2018
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/mman.h>
