@@ -27,11 +27,11 @@ GPIO via mmap:
             - sudo ./gpioToggleFast
 
 LCD Display
-    - Plug in and Turn on
+    - Plug in and Turn on - VERIFIED WORKING
         - I wired up the LCD as described on the wiki
         - The LCD properly turns on and runs
 
-    - Display Images & Movie
+    - Display Images & Movie - VERIFIED WORKING
         - Display an image.
         - Display an image rotated 90 degrees.
         - Play a movie.
@@ -40,7 +40,7 @@ LCD Display
             - ./Display_Image.sh
             - ./off.sh
 
-    - Display text on the LCD
+    - Display text on the LCD - VERIFIED WORKING
         - How to run:
             - ./install.sh
             - ./on.sh
