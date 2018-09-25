@@ -75,3 +75,10 @@ ECE434 Homework 2
 		2. ./etch_a_sketch_btns.py
 		3. Instructions will be printed out
 
+
+========================
+Professor Yoder's Comments
+
+Looks very good.  Nice and complete.
+
+Score:10/10
