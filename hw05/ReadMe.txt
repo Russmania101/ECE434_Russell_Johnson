@@ -22,3 +22,14 @@ Homework 5
 - Cross-Compiling
     - Image of helloWorld running on host is in hello_world_host.png
     - Image of helloWorld running on bone is in hellow_world_bone.png
+
+- Kernel Modules
+    - Part 1:
+        - Verified that the hello.ko file runs properly
+        - The file "Part 1-1.PNG" shows the first part of part 1 running
+        - The file "Part 1-2.PNG" shows the second part (paramters) of part 1 running
+    - Part 2:
+        - Verified that ebbchar properly runs
+        - The file "Part 2.PNG" shows this program running properly
+    - Part 3
+        - 
