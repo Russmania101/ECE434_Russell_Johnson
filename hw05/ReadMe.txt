@@ -19,3 +19,6 @@ Homework 5
 - Installing the Kernel Source
     - Version 4.9 has been installed on host & bone
 
+- Cross-Compiling
+    - Image of helloWorld running on host is in hello_world_host.png
+    - Image of helloWorld running on bone is in hellow_world_bone.png
