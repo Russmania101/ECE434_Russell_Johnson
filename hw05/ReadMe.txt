@@ -25,6 +25,7 @@ Homework 5
 
 - Kernel Modules
     - Part 1:
+        - Installed everything that was needed successfuly
         - Verified that the hello.ko file runs properly
         - The file "Part 1-1.PNG" shows the first part of part 1 running
         - The file "Part 1-2.PNG" shows the second part (paramters) of part 1 running
