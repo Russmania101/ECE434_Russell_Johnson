@@ -33,4 +33,7 @@ Homework 5
         - Verified that ebbchar properly runs
         - The file "Part 2.PNG" shows this program running properly
     - Part 3
-        - 
+        - Added a button to P9_15 and an led to P9_16
+        - modified gpio_test.c to work with those 2 pins
+        - verified that the program works correctly
+        - output from the kernel log can be seen in "Part 3 - kernel log.PNG"
