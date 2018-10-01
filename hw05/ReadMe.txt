@@ -15,6 +15,7 @@ Homework 5
     - Part B 
         - Updated Makefile
             - added built-in and user-defined variables
+            - Verified working correctly
 
 - Installing the Kernel Source
     - Version 4.9 has been installed on host & bone
