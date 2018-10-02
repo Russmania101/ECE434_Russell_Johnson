@@ -20,7 +20,8 @@ Watch:
     8. Dispatch latency - time between actual harware firing to the interrupt being woken up
        Scheduling latency - time it takes from the moment that the scheduler is aware of the task that needs to be run
        to when the task is actually scheudled on the CPU
-    9. Mainline - one of the main contributers is long-running interrupts. Implicitly executed with interrupts disabled because interrupt handlers are exectued in hard IRQ context.
+    9. Mainline - one of the main contributers is long-running interrupts. Implicitly executed with interrupts disabled because interrupt                        
+       handlers are exectued in hard IRQ context.
         - Mainline kernels are built from the latest unmodified mainline Linux kernel sources
     10. The low priority interrupt must finish executing before the external event can start
     11. Enabling the PREEMPT_RT patch allows you to force IRQ threads
