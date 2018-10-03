@@ -41,3 +41,10 @@ Homework 5
         - verified that the program works correctly
         - output from the kernel log can be seen in "Part 3 - kernel log.PNG"
         - Relevant files are in the gpio_test/ directory
+
+========================
+Professor Yoder's Comments
+
+Looks good. You Makefile doesn't look updated.
+
+Score:  10/10
