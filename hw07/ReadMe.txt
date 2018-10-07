@@ -1,0 +1,15 @@
+Russell Johnson
+ECE434
+Homework 7
+
+Project
+    - Link for project at https://elinux.org/ECE497_Project_-_Bluetooth_Speaker
+
+Blynk
+    - Blynk has been installed on my BeagleBone and on my iPhone
+    - Sample program runs great
+    - Created a button widget to control the USR3 LED, and it works great
+    - I also hooked up a button to p9_25 in order to control a virutal LED on my phone - worked great
+
+A Slider
+    - 
