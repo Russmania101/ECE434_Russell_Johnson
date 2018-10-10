@@ -14,3 +14,8 @@ Blynk
 A Slider
     - I added a slider to Blynk and used it to control an LED on P9_14 - works great
         - look in leds.js
+        
+========================
+Professor Yoder's Comments
+
+Score:  10/10
