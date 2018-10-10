@@ -27,3 +27,8 @@ Watch:
     11. Enabling the PREEMPT_RT patch allows you to force IRQ threads
         - little code executed in hard interrupt context
         - can allow premptive threads
+
+========================
+Professor Yoder's Comments
+
+Score:  10/10
