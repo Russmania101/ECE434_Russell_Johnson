@@ -27,7 +27,7 @@ void main(void) {
 		*GPIO3_SET = P9_27;      // The the USR3 LED on
 		__delay_cycles(500000000/5);    // Wait 1/2 second
 
-		*GPIO3_CLEAR = :P9_27;
+		*GPIO3_CLEAR = P9_27;
 		 __delay_cycles(500000000/5); 
 	}
 	__halt();
