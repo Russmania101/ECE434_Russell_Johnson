@@ -10,12 +10,14 @@
 #define USR1 (1<<22)
 #define USR2 (1<<23)
 #define USR3 (1<<24)
-#define P9_27 (1<<19)
+#define P9_27 (1<<19) // GPIO3_19
 unsigned int volatile * const GPIO3_CLEAR = (unsigned int *) (GPIO3 + GPIO_CLEARDATAOUT);
 unsigned int volatile * const GPIO3_SET   = (unsigned int *) (GPIO3 + GPIO_SETDATAOUT);
 
 volatile register unsigned int __R30;
 volatile register unsigned int __R31;
+
+//uint32_t gpio = 0x1<<5;
 
 void main(void) {
 	int i;
@@ -24,11 +26,13 @@ void main(void) {
 	CT_CFG.SYSCFG_bit.STANDBY_INIT = 0;
 
 	for(i=0; i<5; i++) {
-		*GPIO3_SET = P9_27;      // The the USR3 LED on
+		*GPIO3_SET = P9_27;      	// Turn on the LED on p9_27
+		//__R30 |= gpio;
 		__delay_cycles(500000000/5);    // Wait 1/2 second
 
 		*GPIO3_CLEAR = P9_27;
-		 __delay_cycles(500000000/5); 
+		//__R30 &= ~gpio; 
+		__delay_cycles(500000000/5); 
 	}
 	__halt();
 }
