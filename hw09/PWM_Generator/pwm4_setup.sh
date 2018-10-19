@@ -1,7 +1,7 @@
 #!/bin/bash
 #
-export PRUN=0
-export TARGET=pwm5
+export PRUN=1
+export TARGET=pwm4
 echo PRUN=$PRUN
 echo TARGET=$TARGET
 
@@ -19,7 +19,7 @@ elif [ $machine = "PocketBeagle" ]; then
     pins="P1_36 P1_33 P2_32 P2_30"
 elif [ $machine = "Wireless" ]; then
     echo " Found"
-    pins="P8_43 P8_44 P9_45 P8_46"
+    pins="P8_43 P8_44 P8_45 P8_46"
 else
     echo " Not Found"
     pins=""
