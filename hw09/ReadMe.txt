@@ -43,5 +43,6 @@ PRU:
                 - gcc pwm-test.c -o pwm-test
                 - sudo ./pwm-test
         - Connect to a scope
+            - Scope capture is in ""
             - Highest Frequency: 
             - Jitter: 
