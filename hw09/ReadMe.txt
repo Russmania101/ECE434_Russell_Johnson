@@ -21,7 +21,7 @@ PRU:
             - Jitter: lots of jitter
             - Stable: it is stable
     
-    - 5.3 PWM Generator - all the following parts are in "PWM Generator" folder
+    - 5.3 PWM Generator - all the following parts are in "PWM_Generator" folder
         - I took the sample code and changed the pin to P9_27, and the program runs great
         - Screen capture deomnstrating how I ran it is in "5.3.png"
         -   How to run:
