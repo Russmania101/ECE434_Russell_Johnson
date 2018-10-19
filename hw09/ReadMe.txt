@@ -16,10 +16,10 @@ PRU:
                 - source setup.sh 
                 - make
         - Remove delays and hook up to scope
-            - Scope capture is in ""
-            - Toggle spped: 
-            - Jitter: 
-            - Stable: 
+            - Scope capture is in "2.6_scope.png"
+            - Toggle spped: 80ns
+            - Jitter: lots of jitter
+            - Stable: it is stable
     
     - 5.3 PWM Generator
         - I took the sample code and changed the pin to P9_27, and the program runs great
@@ -29,10 +29,11 @@ PRU:
             - source pwm1_setup.sh 
             - make
         - Connect to scope  
-            - Scope capture is in ""
-            - Stable: 
-            - Std Dev: 
-            - Jitter: 
+            - Scope capture is in "5.3_scope.png"
+            - Stable: it isstable
+            - Period: 15ns
+            - Std Dev: 82ps std dev for the period
+            - Jitter: no jitter
     
     - 5.4 Controlling the PWM Frequency
         - Sample code runs great
@@ -40,9 +41,32 @@ PRU:
             - How to run:
                 - source pwm4_setup.sh
                 - make
-                - gcc pwm-test.c -o pwm-test
-                - sudo ./pwm-test
         - Connect to a scope
-            - Scope capture is in ""
-            - Highest Frequency: 
-            - Jitter: 
+            - Scope capture for 2 of the PWM channels (P8_43 & P8_44) is in "5.4_scope.png"
+            - Highest Frequency: 327kHz
+            - Period: 3.06us
+            - Jitter: veyr jittery
+    
+    - 5.5 Loop Unrolling
+        - Sample code runs great
+        - Screen Capture is in "5.5.png"
+            - How to run:
+                - source pwm5_setup.sh
+                - make
+        - Connect to a scope
+            - Scope capture for 2 of the PWM channels (P8_45 & P8_46) is in "5.5_scope.png"
+            - Period: 595ns
+            - this is much faster than without loop unrolling (6 times ish)
+
+    - 5.9 Reading an input at regular intervals
+        - ran the sample code with the led on P9_27 and a button on p9_25 - works great
+            - screen capture is in "5.9.png"
+            - How to run:
+                - source input_setup.sh
+                - make
+        - connect to a function generator and scope
+            - scope capture is in "5.9_scope.png"
+            - There is a 59.5ns delay between the input and output
+
+    
+
