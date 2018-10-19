@@ -25,14 +25,15 @@ void main(void) {
 	/* Clear SYSCFG[STANDBY_INIT] to enable OCP master port */
 	CT_CFG.SYSCFG_bit.STANDBY_INIT = 0;
 
-	for(i=0; i<5; i++) {
+	while(1){
+	//for(i=0; i<5; i++) {
 		*GPIO3_SET = P9_27;      	// Turn on the LED on p9_27
 		//__R30 |= gpio;
-		__delay_cycles(500000000/5);    // Wait 1/2 second
+		__delay_cycles(0); //(500000000/5);    // Wait 1/2 second
 
 		*GPIO3_CLEAR = P9_27;
 		//__R30 &= ~gpio; 
-		__delay_cycles(500000000/5); 
+		__delay_cycles(0); //(500000000/5); 
 	}
 	__halt();
 }

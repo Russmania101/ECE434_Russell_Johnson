@@ -13,8 +13,8 @@ void main(void)
 	/* Clear SYSCFG[STANDBY_INIT] to enable OCP master port */
 	CT_CFG.SYSCFG_bit.STANDBY_INIT = 0;
 
-	led = 0x1<<0;	// P9_31 or P1_36
-	sw  = 0x1<<7;	// P9_25 or P1_29
+	led = 0x1<<5;	// P9_27
+	sw  = 0x1<<7;	// P9_25
 		
 	while (1) {
 		if((__R31&sw) == sw) {
