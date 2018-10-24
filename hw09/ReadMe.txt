@@ -30,7 +30,7 @@ PRU:
             - make
         - Connect to scope  
             - Scope capture is in "5.3_scope.png"
-            - Stable: it isstable
+            - Stable: it is stable
             - Period: 15ns
             - Std Dev: 82ps std dev for the period
             - Jitter: no jitter
@@ -69,4 +69,10 @@ PRU:
             - There is a 59.5ns delay between the input and output
 
     
+========================
+Professor Yoder's Comments
+
+Well done.
+
+Score:  10/10
 
