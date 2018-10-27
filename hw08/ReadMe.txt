@@ -13,3 +13,10 @@ Homework 8
         - Loaded:
             - Non-RT: 1min 44sec
             - RT: 1min 45sec
+
+========================
+Professor Yoder's Comments
+
+Those are the results I was expecting.
+
+Score:  10/10
